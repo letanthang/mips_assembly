@@ -7,8 +7,8 @@ main:
     # process
     li      $v0, 0x10010000
     lw      $v1, length
-    jal		ASSIGNARR				# COPY ARR
-    jal     PRINTARR            # THEN PRINT ARR
+    jal		ASSIGNARR			# ASSIGN ARRAY
+    jal     PRINTARR            # THEN PRINT ARRAY
     
     # terminate program
     li      $v0, 10
