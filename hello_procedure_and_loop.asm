@@ -5,10 +5,10 @@
 .text
 main:
     # process
-    li      $v0, 0x10010000
-    li      $v1, 0x10010100
+    li      $a0, 0x10010000
+    li      $a1, 0x10010100
     jal		COPYARR				# COPY ARR
-    move    $v0, $s0
+    move    $a0, $s0
     jal     PRINTARR            # THEN PRINT ARR
     
     # terminate program
@@ -19,10 +19,10 @@ COPYARR:
     # store return address
     addi    $sp, $sp, -4
     sw      $ra, 0($sp)
-    move    $s0, $v1
+    move    $s0, $a1
 
-    move    $t0, $v0
-    move    $t1, $v1
+    move    $t0, $a0
+    move    $t1, $a1
     lw      $t3, N
     li      $t4, 0
     
@@ -45,7 +45,7 @@ PRINTARR:
     sw      $ra, 0($sp)
 
     # init temp var
-    move    $t0, $v0
+    move    $t0, $a0
     lw      $t1, N
     li      $t2, 0
     
