@@ -5,8 +5,8 @@
 .text
 main:
     # process
-    li      $v0, 0x10010000
-    lw      $v1, length
+    li      $a0, 0x10010000
+    lw      $a1, length
     jal		ASSIGNARR			# ASSIGN ARRAY
     jal     PRINTARR            # THEN PRINT ARRAY
     
@@ -20,11 +20,11 @@ ASSIGNARR:
     sw      $ra, 0($sp)
 
     # process input
-    move    $t1, $v1          
+    move    $t1, $a1          
     addi    $t1, -1
     move    $t2, $t1
     mul     $t2, $t2, 4
-    add    $t0, $v0, $t2   # start add the end of array
+    add    $t0, $a0, $t2   # start add the end of array
 
     
     LOOP:
@@ -44,8 +44,8 @@ PRINTARR:
     sw      $ra, 0($sp)
 
     # process input
-    move    $t0, $v0                # set start address
-    move    $t1, $v1                # get array length
+    move    $t0, $a0                # set start address
+    move    $t1, $a1                # get array length
     li      $t2, 0
     
     LOOPPRINT:
